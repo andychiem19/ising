@@ -28,4 +28,27 @@ always_ff (@posedge clk or negedge n_rst) begin
         state <= IDLE;
         done <= 0;
     end
+    // initialize inputs to zero, etc. here later
+    else begin
+        case (state)
+            IDLE: begin
+                done <= 0;
+                // state transition hinges on start flag
+                // reinitializes values to starting values
+            end
+            INIT: begin
+                // initialize values to a random phase in a certain interval
+                // once this process is complete, transition to computation phase
+            end
+            COMPUTE: begin
+                // compute coupling forces 
+            end
+            UPDATE: begin
+                // update all phases based upon these coupling forces
+                // if stop threshold has been met, could be temp, or just simulation time, transition to finish, else loop back to compute
+            end
+            FINISH: begin
+                // return done <= 1
+                // return to IDLE
+            end
 end
