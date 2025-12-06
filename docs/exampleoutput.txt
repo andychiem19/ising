@@ -1,0 +1,53 @@
+# ========================================
+# MAX-CUT Problem Setup: 2x3 Grid
+# ========================================
+# Graph structure:
+#   0 -- 1 -- 2
+#   |    |    |
+#   3 -- 4 -- 5
+# 
+# Total edges: 7
+# Optimal MAX-CUT: 6 edges (checkerboard)
+# Expected solution:
+#   Set A {0,2,4}: one spin
+#   Set B {1,3,5}: opposite spin
+# ========================================
+# Starting Ising machine simulation...
+# T_stop = 10.0, delta_T = 0.05
+# Expected iterations: 200
+# 
+# 
+# ========================================
+# Simulation Results
+# ========================================
+# Final phases (in Q16.16 fixed-point):
+#   Node 0: phi = 0x0000ece0 (0.9253 rad)
+#   Node 1: phi = 0x000019c3 (0.1006 rad)
+#   Node 2: phi = 0x0000f386 (0.9513 rad)
+#   Node 3: phi = 0x0000270f (0.1526 rad)
+#   Node 4: phi = 0x0000ce1d (0.8051 rad)
+#   Node 5: phi = 0x0000dc3b (0.8603 rad)
+# 
+# Spin configuration:
+#   -1 -- +1 -- -1
+#   |    |    |
+#   +1 -- -1 -- -1
+# 
+# Cut edges: 5 / 7 total edges
+# 
+# Edges cut:
+#   â 0--1
+#   â 1--2
+#   â 3--4
+#   â 0--3
+#   â 1--4
+# 
+# *** GOOD: Found a near-optimal cut ***
+# ========================================
+# 
+# Verification:
+#   Checking for optimal checkerboard pattern...
+#   â Did not find expected checkerboard pattern
+#   This might still be a valid solution if 6 edges are cut
+# 
+# Simulation completed at time 805000 ns
