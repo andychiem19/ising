@@ -14,6 +14,6 @@ Personal codebase for research under Dr. Taskin, related to the development of a
 
 `/docs` –> Extra documentatation of the design process, including high-level block diagrams, reasoning, etc.\
 `/src`  –> Main module files written in SystemVerilog\
-`/tb`   –> Testbenches for module files for RTL verification in Questa/ModelSim\
+`/tb`   –> Testbenches for module files for RTL verification in Questa/ModelSim
 
 ---
