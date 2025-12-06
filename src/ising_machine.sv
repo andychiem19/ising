@@ -19,4 +19,13 @@ typedef enum logic [2:0] {
     COMPUTE,
     UPDATE,
     FINISH
-};
+} state_t;
+
+state_t state;
+
+always_ff (@posedge clk or negedge n_rst) begin
+    if !(n_rst) begin
+        state <= IDLE;
+        done <= 0;
+    end
+end
