@@ -7,7 +7,7 @@ module ising_machine #(
     input   logic n_rst,
     input   logic start,  // a 2D coupling matrix, couplingMatrix[i][j] describes relationships between oscillators i and j
     input   logic signed [dataWidth-1:0] couplingMatrix [N-1:0][N-1:0],  // final states of N oscillators, now in a 1D array
-    input   logic signed [dataWidth-1:0] stopTime,  
+    input   logic signed [dataWidth-1:0] stopTemperature,  
     input   logic signed [dataWidth-1:0] deltaT,
     output  logic signed [dataWidth-1:0] finalPhases [N-1:0]
     output  logic done
@@ -23,6 +23,14 @@ typedef enum logic [2:0] {
 
 state_t state;
 
+// registers
+logic signed [dataWidth-1:0] phases [N-1:0];
+logic signed [63:0] forceAccumulator [N-1:0];
+logic signed [dataWidth-1:0] temperature;
+logic [15:0] iterationCount;
+logic [7:0] i, j;
+
+
 always_ff (@posedge clk or negedge n_rst) begin
     if !(n_rst) begin
         state <= IDLE;
@@ -33,6 +41,8 @@ always_ff (@posedge clk or negedge n_rst) begin
         case (state)
             IDLE: begin
                 done <= 0;
+                if (start) begin
+                end
                 // state transition hinges on start flag
                 // reinitializes values to starting values
             end
